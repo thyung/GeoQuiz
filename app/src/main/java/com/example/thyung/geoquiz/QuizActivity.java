@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class QuizActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
+    private Button mPrevButton;
     private Button mNextButton;
     private TextView mQuestionTextView;
     private TrueFalse[] mQuestionBank = new TrueFalse[] {
@@ -73,6 +74,15 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkAnswer(false);
+            }
+        });
+
+        mPrevButton = (Button)findViewById(R.id.prev_button);
+        mPrevButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCurrentIndex = (mCurrentIndex + mQuestionBank.length - 1) % mQuestionBank.length;
+                updateQuestion();
             }
         });
 
