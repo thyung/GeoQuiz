@@ -1,6 +1,7 @@
 package com.example.thyung.geoquiz;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,6 +27,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button mNextButton;
     private Button mCheatButton;
 
+    private TextView mApiLevelTextView;
     private TextView mQuestionTextView;
     private TrueFalse[] mQuestionBank = new TrueFalse[] {
             new TrueFalse(R.string.question_oceans, true),
@@ -75,6 +77,8 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
+        mApiLevelTextView = (TextView)findViewById(R.id.api_level);
+        mApiLevelTextView.setText("API level "+ Build.VERSION.SDK_INT);
         mQuestionTextView = (TextView)findViewById(R.id.question_text_view);
 
         mTrueButton = (Button)findViewById(R.id.true_button);
